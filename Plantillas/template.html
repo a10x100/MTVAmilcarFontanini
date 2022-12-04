@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Familia</title>
+</head>
+<body>
+
+    <h1 style="color:chocolate;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Mi familia</h1>
+        
+        <p style="color:gray;font-size: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Hola! Cómo están hoy? Mi nombre es Amilcar y, aunque nunca me lo pidieron y no les interese en absoluto, les voy a presentar a los miembros de mi familia...</p>
+                               
+            <h3 style="color:coral;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Familia Primaria:</h3>
+                {% for familiar in FamiliaPrimaria %}
+                <li style="color:darkolivegreen;font-weight:bold;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{familiar.parentezco}}: </li>
+                <p style="color:grey;font-size: 15px;;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Su nombre es {{familiar.nombre}}, tiene {{familiar.edad}} años (fecha de nacimiento: {{familiar.cumpleaños}}), y su correo electrónico es: {{familiar.email}}. </p>
+                {% endfor %}
+                                   
+            <h3 style="color:coral;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Otros Familiares:</h3>
+                {% for otrofamiliar in OtrosFamiliares %}
+                <li style="color:darkolivegreen;font-weight:bold;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{otrofamiliar.parentezco}}: </li>
+                <p style="color:grey;font-size: 15px;;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Su nombre es {{otrofamiliar.nombre}},
+                    {% if otrofamiliar.hay_relacion == False %}
+                    y no tenemos mucha relación.
+                    {% else %} y somos muy cercanos.
+                    {% endif %}
+                {% endfor %}
+
+        <p style="color:gray;font-size: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Eso es todo amigos, saludos!!</p>
+          
+    
+</body>
+</html>
